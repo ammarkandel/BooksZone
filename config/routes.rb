@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
 
+  root to: 'books#index'
   get '/user/books', to: 'users#books'
-  resources :books do
+  resources :books, except: [:index] do
     member do
       patch :change_status
       patch :change_privacy
