@@ -1,0 +1,9 @@
+<% @user_books.each do |book| %>
+  <li>
+    <%= book.title %>
+    <%= book.author %>
+    <%= book.description %>
+    <%= book.progress %>
+    <%= link_to 'link', book_path(book.id) %>
+   </li>
+<% end %>

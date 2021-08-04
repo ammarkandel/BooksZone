@@ -1,4 +1,6 @@
 <h1><%= @book.title %></h1>
-<%= book_change_status(@book) %>
 
-<%= book_change_privacy(@book) %>
+<ul>
+  <%= book_change_status(@book) %>
+  <%= book_change_privacy(@book) %>
+</ul>
