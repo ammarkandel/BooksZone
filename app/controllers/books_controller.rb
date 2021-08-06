@@ -12,6 +12,7 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.new(book_params)
+
     respond_to do |format|
       if @book.save
         format.html { redirect_to books_path, notice: 'Book was created successfuly' }

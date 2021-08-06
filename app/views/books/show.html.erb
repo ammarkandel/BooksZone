@@ -4,3 +4,6 @@
   <%= book_change_status(@book) %>
   <%= book_change_privacy(@book) %>
 </ul>
+
+<h3>Comments</h3>
+<%= render partial; "comments/form", locals: {commentable: @book} %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_04_225809) do
+ActiveRecord::Schema.define(version: 2021_08_06_212613) do
 
   create_table "books", force: :cascade do |t|
     t.string "title"
@@ -25,11 +25,15 @@ ActiveRecord::Schema.define(version: 2021_08_04_225809) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.string "content"
-    t.integer "user_id"
-    t.integer "book_id"
+    t.integer "user_id", null: false
+    t.string "commentable_type", null: false
+    t.integer "commentable_id", null: false
+    t.integer "parent_id"
+    t.text "body"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -44,4 +48,5 @@ ActiveRecord::Schema.define(version: 2021_08_04_225809) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "comments", "users"
 end
