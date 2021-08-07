@@ -7,3 +7,7 @@
 
 <h3>Comments</h3>
 <%= render partial: "comments/form", locals: {commentable: @book} %>
+<% @book.comments.each do |comment| %>
+  <div><%= comment.body %></div>
+  <div><%= comment.user.name %></div>
+<% end %>

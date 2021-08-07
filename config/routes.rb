@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get '/user/profile', to: 'users#profile'
   root to: "books#index"
 
-  resources :books do
+  resources :books, except: [:index] do
     resources :comments, module: :books
     member do
       patch :change_status
