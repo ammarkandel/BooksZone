@@ -1,4 +1,6 @@
-<% @user_books.each do |book| %>
+<h1><%= @user.name %></h1>
+
+<% @user.books.each do |book| %>
   <li>
     <%= book.title %>
     <%= book.author %>
@@ -7,3 +9,4 @@
     <%= link_to 'link', book_path(book.id) %>
    </li>
 <% end %>
+<%= link_to 'Log out', destroy_user_session_path, method: :delete %>

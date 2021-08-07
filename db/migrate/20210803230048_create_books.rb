@@ -7,6 +7,7 @@ class CreateBooks < ActiveRecord::Migration[6.1]
       t.string :progress
       t.string :status, null: false, default: "reading"
       t.string :privacy, null: false, default: "private"
+      t.belongs_to :user
 
       t.timestamps
     end

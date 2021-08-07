@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'registrations' }
 
-  root to: 'books#index'
   get '/user/books', to: 'users#books'
+  get '/user/profile', to: 'users#profile'
+  root to: "books#index"
 
-  resources :books, except: [:index] do
+  resources :books do
     resources :comments, module: :books
     member do
       patch :change_status

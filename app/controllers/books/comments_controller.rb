@@ -4,6 +4,6 @@ class Books::CommentsController < CommentsController
   private
 
   def set_commentable
-    @commentable = Post.find(params[:post_id])
+    @commentable = Book.find(params[:book_id])
   end
 end
