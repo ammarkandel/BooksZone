@@ -12,6 +12,7 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.new(book_params)
+    @book.user_id = current_user.id
 
     respond_to do |format|
       if @book.save
@@ -33,6 +34,6 @@ class BooksController < ApplicationController
   end
 
   def book_params
-    params.require(:book).permit(:title, :author, :description, :progress, user_id: current_user.id)
+    params.require(:book).permit(:title, :author, :description, :progress, :user_id)
   end
 end
