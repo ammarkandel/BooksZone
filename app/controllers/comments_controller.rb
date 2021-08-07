@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to @commentable
     else
-      redirect_to @commentable, alert: "Something went wrong"
+      redirect_to @commentable, alert: 'Something went wrong'
     end
   end
 
