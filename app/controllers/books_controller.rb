@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :set_book, only: %i[change_status change_privacy show]
+  before_action :set_book, only: %i[change_status change_privacy show destroy edit]
   before_action :authenticate_user!, except: %i[index]
 
   def index
@@ -19,6 +19,28 @@ class BooksController < ApplicationController
         format.html { redirect_to books_path, notice: 'Book was created successfuly' }
       else
         format.html { render 'new' }
+      end
+    end
+  end
+
+  def destroy
+    respond_to do |format|
+      if @book.destroy
+        format.html { redirect_to user_profile_path, notice: 'Book was deleted successfuly' }
+      else
+        format.html { redirect_to book_path, notice: 'Something went wrong while delete book' }
+      end
+    end
+  end
+
+  def edit; end
+
+  def update
+    respond_to do |format|
+      if @book.update(book_params)
+        format.html { redirect_to book_path, notice: 'Book was updated successfuly' }
+      else
+        format.html { render 'edit' }
       end
     end
   end
