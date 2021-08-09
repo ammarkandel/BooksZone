@@ -14,4 +14,8 @@ module BooksHelper
     end
     out.html_safe
   end
+
+  def book_progress
+    ['0%', '5%', '20%', '40%', '60%', '100%']
+  end
 end

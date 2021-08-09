@@ -2,7 +2,7 @@ $white-two: #fafafa;
 $white-color: white;
 $main-color: #0290ff;
 $warm-gray: #888888;
-$pinkish-grey: #c4c4c4;
+$pinkish-gray: #c4c4c4;
 
 * {
   margin: 0;
@@ -16,6 +16,16 @@ li {
 
 a {
   text-decoration: none;
+}
+
+.card {
+  padding: 0.5rem;
+  border: 1px solid $warm-gray;
+  background-color: $white-color;
+}
+
+.main {
+  margin: 1rem;
 }
 
 body {

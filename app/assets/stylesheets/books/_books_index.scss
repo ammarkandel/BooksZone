@@ -1,0 +1,47 @@
+.shared_book {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+
+  .book_title {
+    font-size: 2rem;
+  }
+
+  .author {
+    color: $warm-gray;
+  }
+
+  .progress {
+    text-align: center;
+    margin-top: 0.5rem;
+    color: $main-color;
+  }
+
+  .description {
+    margin: 20px 0 20px 0;
+    width: 350px;
+    text-align: center;
+  }
+
+  .privacy {
+    margin-top: 10px;
+  }
+
+  .details_btn {
+    padding: 0.5rem;
+    background-color: $main-color;
+    color: $white-color;
+  }
+}
+
+@media (min-width: 768px) {
+  .shared_book {
+    flex-direction: row;
+  }
+
+  .description {
+     margin: 0;
+  }
+}

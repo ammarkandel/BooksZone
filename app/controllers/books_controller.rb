@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :set_book, only: %i[change_status change_privacy show destroy edit]
+  before_action :set_book, only: %i[change_status change_privacy show destroy edit update]
   before_action :authenticate_user!, except: %i[index]
 
   def index
