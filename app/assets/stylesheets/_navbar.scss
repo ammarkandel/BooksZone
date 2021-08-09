@@ -1,4 +1,40 @@
 .navbar {
-  height: 8rem;
-  background-color: white;
+  padding: 1rem;
+  background-color: $white-color;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  .logo {
+    color: $main-color;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  li {
+    padding: 0.2rem;
+  }
+
+  a {
+    color: $warm-gray;
+  }
+}
+
+@media (min-width: 768px) {
+  .navbar {
+    flex-direction: row;
+
+    li {
+      display: inline-block;
+    }
+
+    .logo {
+      margin-bottom: 0;
+    }
+
+    li:not(:last-child) {
+      margin-right: 3rem;
+    }
+  }
 }

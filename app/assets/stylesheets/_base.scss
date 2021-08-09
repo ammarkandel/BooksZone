@@ -1,5 +1,8 @@
-$light-gray: #fafafa;
+$white-two: #fafafa;
 $white-color: white;
+$main-color: #0290ff;
+$warm-gray: #888888;
+$pinkish-grey: #c4c4c4;
 
 * {
   margin: 0;
@@ -7,6 +10,14 @@ $white-color: white;
   box-sizing: border-box;
 }
 
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
 body {
-  background-color: $light-gray;
+  background-color: $white-two;
 }
