@@ -3,6 +3,7 @@ $white-color: white;
 $main-color: #0290ff;
 $warm-gray: #888888;
 $pinkish-gray: #c4c4c4;
+$black-color: black;
 
 * {
   margin: 0;
@@ -22,10 +23,14 @@ a {
   padding: 0.5rem;
   border: 1px solid $warm-gray;
   background-color: $white-color;
+  width: 100%;
 }
 
 .main {
   margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 body {
