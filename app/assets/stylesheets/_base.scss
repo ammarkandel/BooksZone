@@ -19,6 +19,17 @@ a {
   text-decoration: none;
 }
 
+.alert, .error_notification {
+  color: red;
+  text-align: center;
+  margin-top: 5px;
+}
+
+.notice {
+  color: green;
+  text-align: center;
+}
+
 .card {
   padding: 0.5rem;
   border: 1px solid $warm-gray;

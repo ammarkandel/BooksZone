@@ -12,4 +12,6 @@ Rails.application.routes.draw do
       patch :change_privacy
     end
   end
+
+  match ':not_found' => redirect('/'), constraints: { :not_found => /.*/ }, via: [:get, :post]
 end
