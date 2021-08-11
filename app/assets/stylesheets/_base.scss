@@ -11,6 +11,16 @@ $black-color: black;
   box-sizing: border-box;
 }
 
+abbr {
+  font-size: 0.7rem;
+  color: $warm-gray;
+}
+
+.active {
+  background-color: green;
+  color: white;
+}
+
 li {
   list-style-type: none;
 }
@@ -30,6 +40,10 @@ a {
   text-align: center;
 }
 
+.error {
+  color: red;
+}
+
 .card {
   padding: 0.5rem;
   border: 1px solid $warm-gray;
@@ -42,8 +56,27 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 body {
   background-color: $white-two;
+}
+
+@mixin user_formate {
+  margin: 5px 0 15px 0;
+  span {
+    margin-right: 10px;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    padding: 0.5rem;
+    background-color: $main-color;
+    color: $white-color;
+  }
+}
+
+@mixin flex_ {
+  display: flex;
+  justify-content: space-between;
 }

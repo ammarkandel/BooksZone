@@ -1,4 +1,4 @@
-.shared_book {
+.book_list {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -34,10 +34,26 @@
     background-color: $main-color;
     color: $white-color;
   }
+
+  .book_owner {
+    @include user_formate;
+  }
+}
+
+.user_name {
+  margin-bottom: 20px;
+
+  span {
+    color: $warm-gray;
+  }
+}
+
+.privacy {
+  color: $warm-gray;
 }
 
 @media (min-width: 768px) {
-  .shared_book {
+  .book_list {
     flex-direction: row;
   }
 

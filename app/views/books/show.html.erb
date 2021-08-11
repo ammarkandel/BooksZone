@@ -1,18 +1,32 @@
-<h1><%= @book.title %></h1>
+<div class="details_container" style="width: 30%">
+  <h1><%= @book.title %></h1>
+  <p class="book_description"><%= @book.description %></p>
 
-<% if @book.user_id == current_user.id %>
-  <%= link_to 'Delete', book_path(@book), method: :delete, data: {confirm: 'Are you sure?'} %>
-  <ul>
-    <%= book_change_status(@book) %>
-    <%= book_change_privacy(@book) %>
-  </ul>
+  <% if @book.user_id == current_user.id %>
+    <h3 class="status_title">Status: <span><%= @book.status %></span></h3>
+    <div class='extra_book_actions'>
+      <ul>
+        <%= book_change_status(@book) %>
+      </ul>
+      <h3 class="privacy_title">Privacy: <span><%= @book.privacy %></span></h3>
+      <ul>
+        <%= book_change_privacy(@book) %>
+      </ul>
+    </div>
 
-  <%= link_to 'Edit', edit_book_path %>
-<% end %>
+    <ul class="book_actions">
+      <li><%= link_to 'Edit', edit_book_path %></li>
+      <li><%= link_to 'Delete', book_path(@book), method: :delete, data: {confirm: 'Are you sure?'}, class: 'delete' %></li>
+    </ul>
+  <% end %>
 
-<h3>Comments</h3>
-<%= render partial: "comments/form", locals: {commentable: @book} %>
-<% @book.comments.each do |comment| %>
-  <div><%= comment.body %></div>
-  <div><%= comment.user.name %></div>
-<% end %>
+  <h3>Comment: </h3>
+  <% user_name = @book.user.name.capitalize %>
+  <%= render partial: "comments/form", locals: {commentable: @book} %>
+  <% @book.comments.each do |comment| %>
+    <div class="card comment">
+      <h4 class="comment_owner"><span><%= user_name[0] %></span><%= user_name %></h4>
+      <p><%= comment.body %></p>
+    </div>
+  <% end %>
+</div>
