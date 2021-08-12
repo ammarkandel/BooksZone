@@ -1,0 +1,60 @@
+.book_list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+
+  .book_title {
+    font-size: 2rem;
+  }
+
+  .author {
+    color: $warm-gray;
+  }
+
+  .progress {
+    text-align: center;
+    margin-top: 0.5rem;
+    color: $main-color;
+  }
+
+  .description {
+    margin: 20px 0 20px 0;
+    width: 350px;
+    text-align: center;
+  }
+
+  .privacy {
+    margin-top: 10px;
+    color: $warm-gray;
+  }
+
+  .details_btn {
+    padding: 0.5rem;
+    background-color: $main-color;
+    color: $white-color;
+  }
+
+  .book_owner {
+    @include user_formate;
+  }
+}
+
+.user_name {
+  margin-bottom: 20px;
+
+  span {
+    color: $warm-gray;
+  }
+}
+
+@media (min-width: 768px) {
+  .book_list {
+    flex-direction: row;
+  }
+
+  .description {
+    margin: 0;
+  }
+}

@@ -1,12 +1,15 @@
-<h1><%= @user.name %></h1>
+<h2 class="user_name"><span>Welcome:</span> <%= @user.name %></h2>
 
+<h3 style="text-align: center">Library</h3>
 <% @user.books.each do |book| %>
-  <li>
-    <%= book.title %>
-    <%= book.author %>
-    <%= book.description %>
-    <%= book.progress %>
-    <%= link_to 'link', book_path(book.id) %>
-   </li>
+<div class="card book_list">
+  <ul>
+    <li class="book_title"><%= book.title.capitalize %></li>
+    <li class="author"><%= book.author.capitalize %></li>
+    <li class="progress"><%= book.progress %> Completed</li>
+    <li class="privacy"><%= book.privacy.capitalize %></li>
+  </ul>
+  <p class="description"><%= book.description %></p>
+  <%= link_to 'More Details', book_path(book.id), class: 'details_btn' %>
+ </div>
 <% end %>
-<%= link_to 'Log out', destroy_user_session_path, method: :delete %>

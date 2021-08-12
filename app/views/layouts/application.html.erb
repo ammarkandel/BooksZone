@@ -11,8 +11,19 @@
   </head>
 
   <body>
+    <nav class="navbar">
+      <div class="logo">BooksZone</div>
+      <ul class="nav_links">
+        <li><%= link_to('Home', root_path) %></li>
+        <%= nav_links_access %>
+        <%= nav_links_auth %>
+      </ul>
+    </nav>
+    <header class="main_header"></header>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <main class="main">
+      <%= yield %>
+    </main>
   </body>
 </html>

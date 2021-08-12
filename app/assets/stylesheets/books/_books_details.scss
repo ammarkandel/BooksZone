@@ -1,0 +1,73 @@
+.details_container {
+  .privacy_title,
+  .status_title {
+    margin-top: 25px;
+    text-align: center;
+
+    span {
+      padding: 0.3rem 0.7rem;
+      background-color: $main-color;
+      color: $white-color;
+      border-radius: 2px;
+      font-size: 1rem;
+    }
+  }
+
+  .book_description {
+    margin: 20px 0 20px 0;
+    color: $warm-gray;
+  }
+
+  .book_actions {
+    @include flex_;
+
+    margin: 50px 0 40px 0;
+
+    .delete {
+      background-color: red;
+    }
+
+    li {
+      border-radius: 2px;
+
+      a {
+        padding: 0.5rem 1.2rem;
+        background-color: $main-color;
+        font-size: 1rem;
+        color: white;
+        font-weight: 550;
+      }
+    }
+  }
+
+  .extra_book_actions {
+    ul:first-child,
+    ul:last-child {
+      @include flex_;
+
+      li {
+        padding: 0.5rem 1rem;
+        background-color: $pinkish-gray;
+        margin-top: 1rem;
+        border: 1px solid $main-color;
+        border-radius: 1px;
+
+        a {
+          color: black;
+        }
+      }
+    }
+  }
+
+  .comment {
+    margin-top: 1rem;
+
+    .comment_owner {
+      @include user_formate;
+    }
+
+    p {
+      font-size: 1.1rem;
+    }
+  }
+}

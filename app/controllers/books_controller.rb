@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :set_book, only: %i[change_status change_privacy show destroy edit]
+  before_action :set_book, only: %i[change_status change_privacy show destroy edit update]
   before_action :authenticate_user!, except: %i[index]
 
   def index
@@ -16,7 +16,7 @@ class BooksController < ApplicationController
 
     respond_to do |format|
       if @book.save
-        format.html { redirect_to books_path, notice: 'Book was created successfuly' }
+        format.html { redirect_to root_path, notice: 'Book was created successfuly' }
       else
         format.html { render 'new' }
       end
