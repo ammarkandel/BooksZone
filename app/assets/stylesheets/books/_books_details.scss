@@ -20,6 +20,7 @@
 
   .book_actions {
     @include flex_;
+
     margin: 50px 0 40px 0;
 
     .delete {

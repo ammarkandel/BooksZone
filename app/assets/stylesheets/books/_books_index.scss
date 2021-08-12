@@ -27,6 +27,7 @@
 
   .privacy {
     margin-top: 10px;
+    color: $warm-gray;
   }
 
   .details_btn {
@@ -48,16 +49,12 @@
   }
 }
 
-.privacy {
-  color: $warm-gray;
-}
-
 @media (min-width: 768px) {
   .book_list {
     flex-direction: row;
   }
 
   .description {
-     margin: 0;
+    margin: 0;
   }
 }
