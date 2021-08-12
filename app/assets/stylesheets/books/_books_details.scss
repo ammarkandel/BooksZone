@@ -18,25 +18,6 @@
     color: $warm-gray;
   }
 
-  .extra_book_actions {
-    ul:first-child,
-    ul:last-child {
-      @include flex_;
-
-      li {
-        padding: 0.5rem 1rem;
-        background-color: $pinkish-gray;
-        margin-top: 1rem;
-        border: 1px solid $main-color;
-        border-radius: 1px;
-
-        a {
-          color: black;
-        }
-      }
-    }
-  }
-
   .book_actions {
     @include flex_;
     margin: 50px 0 40px 0;
@@ -54,6 +35,25 @@
         font-size: 1rem;
         color: white;
         font-weight: 550;
+      }
+    }
+  }
+
+  .extra_book_actions {
+    ul:first-child,
+    ul:last-child {
+      @include flex_;
+
+      li {
+        padding: 0.5rem 1rem;
+        background-color: $pinkish-gray;
+        margin-top: 1rem;
+        border: 1px solid $main-color;
+        border-radius: 1px;
+
+        a {
+          color: black;
+        }
       }
     }
   }
