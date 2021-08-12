@@ -11,7 +11,7 @@ module ApplicationHelper
 
   def nav_links_auth
     out = ''
-    return if !current_user
+    return unless !current_user
 
     out << "<li>#{link_to('Login', new_user_session_path)}</li>"
     out << "<li>#{link_to('Signup', new_user_registration_path)}</li>"
