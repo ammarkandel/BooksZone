@@ -16,7 +16,7 @@ class BooksController < ApplicationController
 
     respond_to do |format|
       if @book.save
-        format.html { redirect_to root_path, notice: 'Book was created successfuly' }
+        format.html { redirect_to user_profile_path, notice: 'Book was created successfuly' }
       else
         format.html { render 'new' }
       end

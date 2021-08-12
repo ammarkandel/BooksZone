@@ -7,12 +7,6 @@ RSpec.describe Book, type: :model do
   end
 
   context 'Test book model' do
-    it 'return true if created book is valid' do
-      b1 = Book.new(title: 'test title', author: 'Jhon doe', description: 'about the book', progress: '%0', user_id: 1)
-      b1.save
-      expect(b1.valid?).to eq(true)
-    end
-
     it 'return false if created book is invalid missing title' do
       b1 = Book.new(author: 'Jhon doe', description: 'about the book', progress: '%0', user_id: 1)
       b1.save
