@@ -13,7 +13,7 @@ RSpec.describe Book, type: :model do
       expect(b1.valid?).to eq(true)
     end
 
-    it 'return false if created expense is invalid missing title' do
+    it 'return false if created book is invalid missing title' do
       b1 = Book.new(author: 'Jhon doe', description: 'about the book', progress: '%0', user_id: 1)
       b1.save
       expect(b1.valid?).to eq(false)
