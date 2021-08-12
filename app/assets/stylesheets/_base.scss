@@ -1,7 +1,7 @@
 $white-two: #fafafa;
 $white-color: white;
 $main-color: #0290ff;
-$warm-gray: #888888;
+$warm-gray: #888;
 $pinkish-gray: #c4c4c4;
 $black-color: black;
 
@@ -29,7 +29,8 @@ a {
   text-decoration: none;
 }
 
-.alert, .error_notification {
+.alert,
+.error_notification {
   color: red;
   text-align: center;
   margin-top: 5px;
@@ -65,6 +66,7 @@ body {
 
 @mixin user_formate {
   margin: 5px 0 15px 0;
+
   span {
     margin-right: 10px;
     height: 30px;
