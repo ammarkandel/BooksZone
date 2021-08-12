@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2021_08_06_225202) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "books", force: :cascade do |t|
     t.string "title"
     t.string "author"
@@ -19,16 +22,16 @@ ActiveRecord::Schema.define(version: 2021_08_06_225202) do
     t.string "progress"
     t.string "status", default: "reading", null: false
     t.string "privacy", default: "private", null: false
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_books_on_user_id"
   end
 
   create_table "comments", force: :cascade do |t|
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.string "commentable_type", null: false
-    t.integer "commentable_id", null: false
+    t.bigint "commentable_id", null: false
     t.integer "parent_id"
     t.text "body"
     t.datetime "created_at", precision: 6, null: false
