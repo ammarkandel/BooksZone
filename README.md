@@ -45,7 +45,7 @@ The code includes unit testing using RSpec. To start the test run the next line 
 
 ## Future Features
 
-- Add reply on comments.
+- Add reply on comments
 
 ## Author
 
