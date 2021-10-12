@@ -3,7 +3,7 @@ class BooksController < ApplicationController
   before_action :authenticate_user!, except: %i[index]
 
   def index
-    @books = Book.where(privacy: 'share')
+    @books = Book.includes(:user).where(privacy: 'share')
   end
 
   def new

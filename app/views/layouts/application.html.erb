@@ -15,8 +15,16 @@
       <div class="logo">BooksZone</div>
       <ul class="nav_links">
         <li><%= link_to('Home', root_path) %></li>
-        <%= nav_links_access %>
-        <%= nav_links_auth %>
+        <% if current_user %>
+          <li><%= link_to('Profile', user_profile_path) %></li>
+          <li><%= link_to('New Book', new_book_path) %></li>
+          <li><%= link_to('Logout', destroy_user_session_path, method: :delete) %></li>
+        <% end %>
+
+        <% if !current_user %>
+          <li><%= link_to('Login', new_user_session_path) %></li>
+          <li><%= link_to('Signup', new_user_registration_path) %></li>
+        <% end %>
       </ul>
     </nav>
     <header class="main_header"></header>

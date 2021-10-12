@@ -3,14 +3,21 @@
   <p class="book_description"><%= @book.description %></p>
 
   <% if @book.user_id == current_user.id %>
-    <h3 class="status_title">Status: <span><%= @book.status %></span></h3>
+    <h3 class="status_title">Status: <span id='status'><%= @book.status %></span></h3>
+
     <div class='extra_book_actions'>
       <ul>
-        <%= book_change_status(@book) %>
+        <% Book::STATUS.each do |status| %>
+          <li><%= link_to(status, change_status_book_path(@book, status: status), method: :patch, remote: true) %></li>
+        <% end %>
       </ul>
-      <h3 class="privacy_title">Privacy: <span><%= @book.privacy %></span></h3>
+
+      <h3 class="privacy_title">Privacy: <span id='privacy'><%= @book.privacy %></span></h3>
+
       <ul>
-        <%= book_change_privacy(@book) %>
+        <% Book::PRIVACY.each do |privacy| %>
+          <li><%= link_to(privacy, change_privacy_book_path(@book, privacy: privacy), method: :patch, remote: true) %></li>
+        <% end %>
       </ul>
     </div>
 
@@ -21,12 +28,8 @@
   <% end %>
 
   <h3>Comment: </h3>
-  <% user_name = @book.user.name.capitalize %>
   <%= render partial: "comments/form", locals: {commentable: @book} %>
-  <% @book.comments.each do |comment| %>
-    <div class="card comment">
-      <h4 class="comment_owner"><span><%= user_name[0] %></span><%= user_name %></h4>
-      <p><%= comment.body %></p>
-    </div>
-  <% end %>
+  <div id='comments'>
+    <%= render partial: "comments/comment", collection: @book.comments %>
+  </div>
 </div>

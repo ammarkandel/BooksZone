@@ -2,10 +2,14 @@ class CommentsController < ApplicationController
   def create
     @comment = @commentable.comments.new(comment_params)
     @comment.user = current_user
-    if @comment.save
-      redirect_to @commentable
-    else
-      redirect_to @commentable, alert: 'Something went wrong'
+    respond_to do |format|
+      if @comment.save
+        format.js
+        redirect_to @commentable
+      else
+        format.js
+        redirect_to @commentable, alert: 'Something went wrong'
+      end
     end
   end
 

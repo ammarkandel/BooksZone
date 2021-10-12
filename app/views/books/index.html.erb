@@ -1,8 +1,7 @@
 <% @books.each do |book| %>
-  <% user_name = book.user.name.capitalize %>
   <div class="card book_list">
     <ul>
-      <h4 class="book_owner"><span><%= user_name[0] %></span><%= user_name %></h4>
+      <span><%= book.user.name.capitalize %></span>
       <li class="book_title"><%= book.title.capitalize %></li>
       <li class="author"><%= book.author.capitalize %></li>
       <li class="progress"><%= book.progress %> Completed</li>
