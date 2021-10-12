@@ -30,6 +30,6 @@
   <h3>Comment: </h3>
   <%= render partial: "comments/form", locals: {commentable: @book} %>
   <div id='comments'>
-    <%= render partial: "comments/comment", collection: @book.comments %>
+    <%= render partial: "comments/comment", collection: @book.comments.includes(:user) %>
   </div>
 </div>
