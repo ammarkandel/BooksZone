@@ -5,10 +5,8 @@ class CommentsController < ApplicationController
     respond_to do |format|
       if @comment.save
         format.js
-        redirect_to @commentable
       else
         format.js
-        redirect_to @commentable, alert: 'Something went wrong'
       end
     end
   end

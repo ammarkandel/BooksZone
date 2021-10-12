@@ -11,11 +11,11 @@ class BooksController < ApplicationController
   end
 
   def create
-    @book = Book.new(book_params)
-    @book.user_id = current_user.id
+    book = Book.new(book_params)
+    book.user_id = current_user.id
 
     respond_to do |format|
-      if @book.save
+      if book.save
         format.html { redirect_to user_profile_path, notice: 'Book was created successfuly' }
       else
         format.html { render 'new' }
@@ -45,7 +45,9 @@ class BooksController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @book_comments = @book.comments.order('comments.created_at DESC').includes(:user)
+  end
 
   include BookActions
 
