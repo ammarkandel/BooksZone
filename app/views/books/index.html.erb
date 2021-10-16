@@ -1,12 +1,1 @@
-<% @books.each do |book| %>
-  <div class="card book_list">
-    <ul>
-      <span><%= book.user.name.capitalize %></span>
-      <li class="book_title"><%= book.title.capitalize %></li>
-      <li class="author"><%= book.author.capitalize %></li>
-      <li class="progress"><%= book.progress %> Completed</li>
-    </ul>
-    <p class="description"><%= book.description %></p>
-    <%= link_to 'More Details', book_path(book.id), class: 'details_btn' %>
-   </div>
-<% end %>
+<%= render @books %>

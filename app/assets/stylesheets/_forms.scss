@@ -3,7 +3,7 @@
 .form-inputs {
   margin-top: 2rem;
 
-  input {
+  input, textarea, select {
     display: flex;
     flex-direction: column;
     height: 1.8rem;

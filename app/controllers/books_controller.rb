@@ -7,15 +7,15 @@ class BooksController < ApplicationController
   end
 
   def new
-    @book = Book.new
+    @book_new = Book.new
   end
 
   def create
-    book = Book.new(book_params)
-    book.user_id = current_user.id
+    @book_new = Book.new(book_params)
+    @book_new.user_id = current_user.id
 
     respond_to do |format|
-      if book.save
+      if @book_new.save
         format.html { redirect_to user_profile_path, notice: 'Book was created successfuly' }
       else
         format.html { render 'new' }

@@ -58,16 +58,4 @@
       }
     }
   }
-
-  .comment {
-    margin-top: 1rem;
-
-    .comment_owner {
-      @include user_formate;
-    }
-
-    p {
-      font-size: 1.1rem;
-    }
-  }
 }
