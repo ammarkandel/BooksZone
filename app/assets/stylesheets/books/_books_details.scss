@@ -1,8 +1,6 @@
 .details_container {
-  .privacy_title,
-  .status_title {
-    margin-top: 25px;
-    text-align: center;
+  .privacy_title, .status_title {
+    margin-top: 30px;
 
     span {
       padding: 0.3rem 0.7rem;
@@ -19,7 +17,6 @@
   }
 
   .book_actions {
-    @include flex_;
 
     margin: 50px 0 40px 0;
 
@@ -29,6 +26,7 @@
 
     li {
       border-radius: 2px;
+      display: inline-block;
 
       a {
         padding: 0.5rem 1.2rem;
@@ -41,9 +39,8 @@
   }
 
   .extra_book_actions {
-    ul:first-child,
-    ul:last-child {
-      @include flex_;
+    .status_links,
+    .privacy_links {
 
       li {
         padding: 0.5rem 1rem;
@@ -51,6 +48,9 @@
         margin-top: 1rem;
         border: 1px solid $main-color;
         border-radius: 1px;
+        width: 75px;
+        display: inline-block;
+        text-align: center;
 
         a {
           color: black;

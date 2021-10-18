@@ -1,12 +1,12 @@
-<div class="details_container" style="width: 30%">
+<div class="details_container">
   <h1><%= @book.title %></h1>
   <p class="book_description"><%= @book.description %></p>
 
   <% if @book.user_id == current_user.id %>
-    <h3 class="status_title">Status: <span id='status'><%= @book.status %></span></h3>
-
     <div class='extra_book_actions'>
-      <ul>
+      <h3 class="status_title">Status: <span id='status'><%= @book.status %></span></h3>
+
+      <ul class='status_links'>
         <% Book::STATUS.each do |status| %>
           <li><%= link_to(status, change_status_book_path(@book, status: status), method: :patch, remote: true) %></li>
         <% end %>
@@ -14,7 +14,7 @@
 
       <h3 class="privacy_title">Privacy: <span id='privacy'><%= @book.privacy %></span></h3>
 
-      <ul>
+      <ul class='privacy_links'>
         <% Book::PRIVACY.each do |privacy| %>
           <li><%= link_to(privacy, change_privacy_book_path(@book, privacy: privacy), method: :patch, remote: true) %></li>
         <% end %>
@@ -29,8 +29,8 @@
 
   <h3>Comment: </h3>
   <%= render partial: "comments/form", locals: {commentable: @book} %>
-</div>
 
-<div id='comments'>
-  <%= render partial: "books/comments/comment", collection: @book_comments %>
+  <div id='comments'>
+    <%= render partial: "books/comments/comment", collection: @book_comments %>
+  </div>
 </div>

@@ -1,4 +1,4 @@
-module BookActions
+module BookExtraActions
   extend ActiveSupport::Concern
 
   def change_privacy

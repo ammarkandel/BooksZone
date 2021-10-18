@@ -1,6 +1,5 @@
 class BooksController < ApplicationController
   before_action :set_book, only: %i[change_status change_privacy show destroy edit update]
-  before_action :authenticate_user!, except: %i[index]
 
   def index
     @books = Book.includes(:user).where(privacy: 'share')
@@ -49,12 +48,12 @@ class BooksController < ApplicationController
     @book_comments = @book.comments.order('comments.created_at DESC').includes(:user)
   end
 
-  include BookActions
+  include BookExtraActions
 
   private
 
   def set_book
-    @book = Book.find(params[:id])
+    @book = Book.find_by_id(params[:id])
   end
 
   def book_params
