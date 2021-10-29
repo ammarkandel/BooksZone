@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
   before_action :set_book, only: %i[change_status change_privacy show destroy edit update]
+  decorates_assigned :book
 
   def index
     @books = Book.includes(:user).where(privacy: 'share')
@@ -46,7 +47,6 @@ class BooksController < ApplicationController
 
   def show
     @book_comments = @book.comments.order('comments.created_at DESC').includes(:user)
-    @book_decorate = @book.decorate
   end
 
   include BookExtraActions

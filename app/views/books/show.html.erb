@@ -1,21 +1,21 @@
 <div class="details_container">
-  <h1><%= @book.title %></h1>
-  <p class="book_description"><%= @book.description %></p>
+  <h1><%= book.title %></h1>
+  <p class="book_description"><%= book.description %></p>
 
     <div class='extra_book_actions'>
-      <h3 class="status_title">Status: <span id='status'><%= @book.status %></span></h3>
+      <h3 class="status_title">Status: <span id='status'><%= book.status %></span></h3>
       <ul class='status_links'>
-         <%= @book_decorate.book_status %>
+         <%= book.book_status %>
       </ul>
 
-      <h3 class="privacy_title">Privacy: <span id='privacy'><%= @book.privacy %></span></h3>
+      <h3 class="privacy_title">Privacy: <span id='privacy'><%= book.privacy %></span></h3>
       <ul class='privacy_links'>
-         <%= @book_decorate.book_privacy %>
+         <%= book.book_privacy %>
       </ul>
     </div>
 
     <ul class="book_actions">
-      <%= @book_decorate.book_actions %>
+      <%= book.book_actions %>
     </ul>
 </div>
 
