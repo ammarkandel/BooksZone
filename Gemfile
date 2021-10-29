@@ -21,6 +21,8 @@ gem 'turbolinks', '~> 5'
 gem 'devise'
 # Simple form
 gem 'simple_form'
+# Use draper gem to decorate views
+gem 'draper'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password

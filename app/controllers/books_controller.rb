@@ -46,6 +46,7 @@ class BooksController < ApplicationController
 
   def show
     @book_comments = @book.comments.order('comments.created_at DESC').includes(:user)
+    @book_decorate = @book.decorate
   end
 
   include BookExtraActions
