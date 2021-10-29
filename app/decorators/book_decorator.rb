@@ -1,6 +1,10 @@
 class BookDecorator < ApplicationDecorator
   delegate_all
 
+  def admin?
+    h.current_user.id == object.user_id
+  end
+
   def delete_link
     h.content_tag :li do
       h.link_to 'Delete', h.book_path(object), method: :delete, data: {confirm: 'Are you sure?'}, class: 'delete'
@@ -18,7 +22,7 @@ class BookDecorator < ApplicationDecorator
 
      result << edit_link
      result << delete_link
-     result.html_safe if h.current_user == object.user_id
+     result.html_safe if admin?
   end
 
   def change_privacy_link(privacy)
@@ -39,7 +43,7 @@ class BookDecorator < ApplicationDecorator
      Book::PRIVACY.each do |privacy|
        result << change_privacy_link(privacy)
      end
-     result.html_safe if h.current_user.id == object.user_id
+     result.html_safe if admin?
   end
 
   def book_status
@@ -48,6 +52,6 @@ class BookDecorator < ApplicationDecorator
      Book::STATUS.each do |status|
        result << change_status_link(status)
      end
-     result.html_safe if h.current_user.id == object.user_id
+     result.html_safe if admin?
   end
 end
