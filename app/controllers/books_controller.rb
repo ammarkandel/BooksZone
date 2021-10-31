@@ -11,11 +11,10 @@ class BooksController < ApplicationController
   end
 
   def create
-    @book_new = Book.new(book_params)
-    @book_new.user_id = current_user.id
+    book = current_user.books.new(book_params)
 
     respond_to do |format|
-      if @book_new.save
+      if book.save
         format.html { redirect_to user_profile_path, notice: 'Book was created successfuly' }
       else
         format.html { render 'new' }
